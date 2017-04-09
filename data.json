@@ -1,0 +1,30 @@
+[
+	{
+		"id": 1,
+		"sprint": "sprint1",
+		"startDate": 1456404836968,
+		"endDate": 1456404836968, 
+		"storyPoints": 40
+	}, 
+	{
+		"id": 2,
+		"sprint": "sprint2",
+		"startDate": 1456404836968,
+		"endDate": 1456404836969, 
+		"storyPoints": 20
+	}, 
+	{
+		"id": 3,
+		"sprint": "sprint3",
+		"startDate": 1456404836968,
+		"endDate": 1456404836970, 
+		"storyPoints": 23
+	},
+	{
+		"id": 4,
+		"sprint": "sprint4",
+		"startDate": 1456404836968,
+		"endDate": 1456404836980, 
+		"storyPoints": 15
+	}
+]

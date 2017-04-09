@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<title>Test task</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">	
+	</head>
+	<body ng-controller="AppController as vm">	
+		<div class="col-md-10 ">
+			<table-directive 
+				table-data="vm.data" 
+				on-save-edit-row="vm.saveRow" 
+				on-delete-row="vm.deleteRow" 
+				on-add-new-row="vm.onAddNewInstance"/>
+		</div>	
+		<div class="col-md-6">
+			<historgram data="vm.data" width="600" height="300"/>
+		</div>
+	
+	
+		<script type="text/javascript" src="libs/d3.min.js"></script>
+		<script type="text/javascript" src="libs/angular.js"></script>
+		<script type="text/javascript" src="js/app.module.js"></script>	
+		<script type="text/javascript" src="js/controllers/app.controller.js"></script>
+		<script type="text/javascript" src="js/controllers/tableDirective.controller.js"></script>
+		<script type="text/javascript" src="js/service/mockedData.service.js"></script>
+		<script type="text/javascript" src="js/directives/histogram.directive.js"></script>
+		<script type="text/javascript" src="js/directives/tableDirective.directive.js"></script>
+	</body>
+</html>

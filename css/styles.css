@@ -1,0 +1,44 @@
+body{
+	margin: 20px;
+}
+
+svg{
+	margin: 20px;
+}
+svg#chart {
+	fill: #333333;
+    background-color: rgb(249, 249, 249);
+}
+
+rect {
+	fill: #2452AE;
+}
+span i {
+	cursor: pointer;
+}
+.add-item-form{
+	padding: 0;
+}
+
+.add-item-form form input{
+	margin: 5px 20px 0 0;
+}
+
+.add-item-form form button{
+	margin: 0 10px 0 0;
+}
+
+.button-size{
+	width: 85px;
+}
+tr td{
+	max-width: 190px;
+}
+tr td input{
+	max-width: 140px;
+}
+
+.table{
+	max-height: 300px;
+	overflow: auto;
+}

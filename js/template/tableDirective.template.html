@@ -1,0 +1,83 @@
+<div>
+	Search: <input ng-model="query"/>
+		<div class="table">
+			<table class="table table-striped">
+			<thead>
+				<tr>
+					<th> Sprint 
+						<span ng-click="vm.orderColumn('sprint')">
+							<i class="glyphicon glyphicon-sort"></i>
+						</span>
+					</th>
+					<th>Start Date
+						<span ng-click="vm.orderColumn('startDate')">
+							<i class="glyphicon glyphicon-sort"></i>
+						</span>
+					</th> 
+					<th> End Date
+						<span ng-click="vm.orderColumn('endDate')">
+							<i class="glyphicon glyphicon-sort"></i>
+						</span>
+					</th>
+					<th> Story Points
+						<span ng-click="vm.orderColumn('storyPoints')">
+							<i class="glyphicon glyphicon-sort"></i>
+						</span>
+					</th>
+					<th>Action</th>
+				</tr>
+			<thead>
+			<tbody> 				
+				<tr ng-repeat="inst in vm.data | filter:query track by inst.id" >					
+					<td ng-show="vm.editIndex === $index" class="col-md-2"><input type="text" ng-model="vm.editInstance.sprint"/></td>
+					<td ng-show="vm.editIndex === $index" class="col-md-2"><input type="date" ng-model="vm.editInstance.startDate"/></td> 
+					<td ng-show="vm.editIndex === $index" class="col-md-2"><input type="date" ng-model="vm.editInstance.endDate"/></td>
+					<td ng-show="vm.editIndex === $index" class="col-md-2"><input type="number" ng-model="vm.editInstance.storyPoints"/></td>
+					<td ng-show="vm.editIndex === $index" class="col-md-2">
+						<button class="btn button-size" ng-click="vm.saveRow(vm.editInstance)">Save <span class="glyphicon glyphicon-ok"></span></button>
+						<button class="btn button-size" ng-click="vm.reset()">Cancel <span class="glyphicon glyphicon-remove-circle"></span></button>				
+					</td>
+					
+					<td ng-show="vm.editIndex !== $index" class="col-md-2">{{inst.sprint }}</td>
+					<td ng-show="vm.editIndex !== $index" class="col-md-2">{{inst.startDate | date: 'd MMM, yyyy'}}</td> 
+					<td ng-show="vm.editIndex !== $index" class="col-md-2">{{inst.endDate | date: 'd MMM, yyyy'}}</td>
+					<td ng-show="vm.editIndex !== $index" class="col-md-2">{{inst.storyPoints}}</td>
+					<td ng-show="vm.editIndex !== $index" class="col-md-2">
+						<button class="btn button-size" ng-click="vm.editRow(inst, $index)">Edit <span class="glyphicon glyphicon-edit"></span></button>
+						<button class="btn button-size" ng-click="vm.deleteRow(inst)">Delete <span class="glyphicon glyphicon-remove"></span></button>				
+					</td>
+				</tr>			
+			<tbody>
+			</table>			
+		</div>	
+		<div ng-show="vm.addMode" class="col-md-12 add-item-form">
+			<form name="vm.Form" class="form-inline" novalidate>
+				<input class="form-group col-md-2" 
+					name="sprint" 
+					type="text" 
+					ng-model="vm.newIsntance.sprint"
+					required/>
+				<input class="form-group col-md-2" 
+					name="startDate" 
+					type="date"					
+					ng-model="vm.newIsntance.startDate" 
+					required/>
+				<input class="form-group col-md-2 "
+					name="endDate"
+					type="date" 					
+					ng-model="vm.newIsntance.endTime" 
+					required/>
+				<input class="form-group col-md-2"
+					name="storyPoints" 
+					type="number" 
+					ng-model="vm.newIsntance.storyPoints" 
+					required/>
+				<button class="btn col-md-1"
+					ng-click="vm.onAddNewInstance(vm.newIsntance)"
+					ng-disabled="vm.Form.$invalid "> Add <span class="glyphicon glyphicon-plus"></span></button>	
+				<button class="btn col-md-1"
+					ng-click="vm.cancelAddNewInstance()"> Cancel <span class="glyphicon glyphicon-remove-circle"></span></button>	
+			</form>
+		</div>		
+	<button ng-hide="vm.addMode"  class="btn btn-primary" type="button" ng-click="vm.openAddInstanceForm()"> Add New Item</button>
+</div>
