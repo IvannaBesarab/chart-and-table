@@ -94,17 +94,17 @@
 							.rangeRoundBands([0, width]);
 
 					y = d3.scale.linear()
-								.domain([0, d3.max(data, function(d){return d.storyPoints + 10; })])
-								.range([height, 0]);
+							.domain([0, d3.max(data, function(d){return d.storyPoints + 10; })])
+							.range([height, 0]);
 
 					xAxis = d3.svg.axis()
-									.scale(x)
-									.orient('bottom');
+							.scale(x)
+							.orient('bottom');
 
 					yAxis = d3.svg.axis()
-									.scale(y)
-									.ticks(data.length)
-									.orient('left');
+							.scale(y)
+							.ticks(data.length)
+							.orient('left');
 				}
 
 				scope.$watchCollection('data', function (newVal, oldVal) {
