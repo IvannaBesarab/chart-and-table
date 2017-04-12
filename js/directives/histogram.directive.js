@@ -55,9 +55,9 @@
 
 					d3.select('svg')
 						.append("text")
-							.attr("x", (width / 2) + (width / 2)/6 )
+							.attr("x", width / 2 )
 							.attr('transform','translate(0, 5)')
-							.attr("y", 0 + (margin.top ))
+							.attr("y", margin.top)
 							.attr("text-anchor", "middle")
 							.style("font-size", "16px")
 							.text("Story Points Statistic");
